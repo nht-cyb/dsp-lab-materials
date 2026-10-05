@@ -1,0 +1,13 @@
+clear; close all; clc;
+h1 = ideal_LFP(pi/5, 31);
+h2 = ideal_LFP(pi/5, 501);
+w = hamming(501).';
+h3 = h2.*w;
+[H1, W1] = freqz(h1, [1]);
+[H2, W2] = freqz(h2, [1]);
+[H3, W3] = freqz(h3, [1]);
+plot(abs(H1));
+hold on;
+plot(abs(H2), 'r');
+plot(abs(H3));
+legend('h1', 'h2', 'h3');

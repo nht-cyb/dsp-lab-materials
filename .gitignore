@@ -1,0 +1,9 @@
+# MATLAB autosave / cache
+*.asv
+*.m~
+slprj/
+*.slxc
+
+# Lab manuals are not redistributed
+*.pdf
+*.rar
