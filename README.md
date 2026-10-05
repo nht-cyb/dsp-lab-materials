@@ -8,14 +8,14 @@ MATLAB code for the Digital Signal Processing course (ELT-3144) labs.
 
 - **MATLAB** (R2019b or newer recommended)
 - **Signal Processing Toolbox**: `impz`, `freqz`, `zplane`, `fir1`, `chebwin`, `hamming`, `downsample`, `residuez`
-- **Simulink**: needed only for the `.slx` models in `LAB5`
+- **Simulink**: needed only for the `.slx` models in `LAB5-simulink`
 
 ## How to run (general)
 
-Each `LABx` folder is self-contained. Scripts call helper functions from the **same folder**, so always run them from inside their own folder:
+Each `LABx-...` folder is self-contained. Scripts call helper functions from the **same folder**, so always run them from inside their own folder:
 
 ```matlab
-cd LAB2        % move into the lab folder
+cd LAB2-signal-operations-convolution        % move into the lab folder
 baitap1d       % run a script by typing its name (no .m)
 ```
 
@@ -29,21 +29,21 @@ Files that begin with `function` are **functions**, not scripts. Call them with 
 
 | Folder | Title | Topic |
 |---|---|---|
-| `LAB0` | Lab 0: Getting started with MATLAB (*Làm quen với ngôn ngữ lập trình MATLAB*) | Variables, matrices, operators, plotting |
-| `LAB1` | Lab 1: Signals (*Tín hiệu*) | Representing discrete-time signals, plus time and frequency domains |
-| `LAB2` | Lab 2: Signal operations & LTI systems | Unit step and impulse, signal addition, convolution, difference equations |
-| `LAB3` | Lab 3: Signal sampling (*Lấy mẫu tín hiệu*) | Sampling rates, aliasing, FFT spectrum, audio filtering |
+| `LAB0-matlab-basics` | Lab 0: Getting started with MATLAB (*Làm quen với ngôn ngữ lập trình MATLAB*) | Variables, matrices, operators, plotting |
+| `LAB1-signals` | Lab 1: Signals (*Tín hiệu*) | Representing discrete-time signals, plus time and frequency domains |
+| `LAB2-signal-operations-convolution` | Lab 2: Signal operations & LTI systems | Unit step and impulse, signal addition, convolution, difference equations |
+| `LAB3-signal-sampling` | Lab 3: Signal sampling (*Lấy mẫu tín hiệu*) | Sampling rates, aliasing, FFT spectrum, audio filtering |
 | `LAB4` | Lab 4: Systems (*Hệ thống*) | Impulse response, difference equations, H(z), poles/zeros, frequency response |
-| `LAB5` | Lab 5: Simulink | Building signal models in Simulink, Fourier series |
-| `LAB6` | Lab 6: System structure design (*Thiết kế cấu trúc hệ thống*) | Cascade (series) and parallel realizations of H(z) |
-| `LAB8-FIR` | Lab 7 + 8: Digital filter design: FIR (*Thiết kế bộ lọc số – Bộ lọc FIR*) | Ideal low-pass filter, the windowing method (Hamming) |
+| `LAB5-simulink` | Lab 5: Simulink | Building signal models in Simulink, Fourier series |
+| `LAB6-system-structures` | Lab 6: System structure design (*Thiết kế cấu trúc hệ thống*) | Cascade (series) and parallel realizations of H(z) |
+| `LAB8-fir-filter-design` | Lab 7 + 8: Digital filter design: FIR (*Thiết kế bộ lọc số – Bộ lọc FIR*) | Ideal low-pass filter, the windowing method (Hamming) |
 | `lib` | Shared helper functions | Reusable signal generators and solutions collected from the labs |
 | `midterm` | Midterm exam (*Giữa kỳ*) | Function plotting, multi-tone signal, LTI system, moving-average filter |
 
 
 ---
 
-## LAB0: Getting started with MATLAB
+## LAB0-matlab-basics: Getting started with MATLAB
 
 
 | File | Type | Description | How to run |
@@ -55,7 +55,7 @@ Files that begin with `function` are **functions**, not scripts. Call them with 
 
 > `subplot_ex.m` was originally named `subplot.m`. It was renamed so it no longer shadows MATLAB's built-in `subplot` function.
 
-## LAB1: Signals
+## LAB1-signals: Signals
 
 
 | File | Type | Description | How to run |
@@ -64,7 +64,7 @@ Files that begin with `function` are **functions**, not scripts. Call them with 
 | `plotDirac.m` | function | Plots the unit impulse δ(n − n0) for n = −10…10 | `plotDirac(3)` |
 | `nemngang.m` | script | Trajectory of a projectile thrown at an angle (physics exercise) | `nemngang` |
 
-## LAB2: Signal operations & LTI systems
+## LAB2-signal-operations-convolution: Signal operations & LTI systems
 
 Covers Chapters 2 and 4 of the lab manual.
 
@@ -87,7 +87,7 @@ Covers Chapters 2 and 4 of the lab manual.
 | `bai3.m` | System y(n) + y(n−1) − ¾y(n−2) = x(n): impulse response from `impz` vs. the analytic formula, and the response to 2·sin(0.1πn) | `bai3` |
 | `bai6.m` | Impulse response of y(n) − 4y(n−1) + 3y(n−2) = x(n) + x(n−1) | `bai6`, then `stem(n, h)` (the script computes h but does not plot it) |
 
-## LAB3: Signal sampling
+## LAB3-signal-sampling: Signal sampling
 
 
 | File | Type | Description | How to run |
@@ -98,14 +98,14 @@ Covers Chapters 2 and 4 of the lab manual.
 | `bai4.m` | script | Loads `audioclip1.wav`, plots its spectrum, low-pass filters it (`fir1` + Chebyshev window) and **plays** the result | `bai4` (turn your speakers on) |
 | `audioclip1.wav` | data | Audio clip used by `bai4.m` | — |
 
-> `bai4.m` must run from `LAB3` so that `audioread` can find `audioclip1.wav`.
+> `bai4.m` must run from `LAB3-signal-sampling` so that `audioread` can find `audioclip1.wav`.
 > `sound(outlo)` plays at MATLAB's default rate of 8192 Hz. Use `sound(outlo, fs)` to play it at the clip's real speed.
 
 ## LAB4: Systems
 
 This lab only had a manual, so there is no `LAB4` folder in the repo. Solutions for this chapter (impulse response, zero/pole plot, frequency response) are in `lib/veduxung.m` and `lib/DuxungDutanso.m`.
 
-## LAB5: Simulink
+## LAB5-simulink: Simulink
 
 
 | File | Type | Description | How to run |
@@ -117,7 +117,7 @@ This lab only had a manual, so there is no `LAB4` folder in the repo. Solutions 
 
 > `bai2.m` uses a time step of 0.1 s, which is too coarse for harmonics up to 13 Hz, so the plot is aliased. For a clean square wave, change the first line to `t = 0:0.001:2;`.
 
-## LAB6: System structure design
+## LAB6-system-structures: System structure design
 
 
 | File | Type | Description | How to run |
@@ -132,7 +132,7 @@ a = [16 12 2 -4 -1];           % denominator coefficients
 
 For the **parallel** form, see `lib/CTSS.m`: `[B, A, K] = CTSS(b, a)`.
 
-## LAB8-FIR: Digital filter design (FIR)
+## LAB8-fir-filter-design: Digital filter design (FIR)
 
 
 | File | Type | Description | How to run |
@@ -163,15 +163,15 @@ addpath('lib')   % run from the repo root
 | `sig_add.m` | function | Signal addition: `[y, n] = sig_add(x1, n1, x2, n2)` |
 | `mult_sig.m` | function | Signal multiplication: `[y, n] = mult_sig(x1, n1, x2, n2)` |
 | `conv_sig.m` | function | Convolution with time index: `[y, ny] = conv_sig(x, nx, h, nh)` |
-| `CTNT.m` | function | Cascade realization (same as `LAB6/dir2cas.m`): `[b0, A, B] = CTNT(b, a)` |
+| `CTNT.m` | function | Cascade realization (same as `LAB6-system-structures/dir2cas.m`): `[b0, A, B] = CTNT(b, a)` |
 | `CTSS.m` | function | Parallel realization with `residuez`: `[B, A, K] = CTSS(b, a)` |
 | `bai1func.m` + `bai1.m` | function + script | f(x) = 3.2x⁴ − 6x² − 5x, evaluated and plotted: `bai1` |
 | `veduxung.m` | script | y(n) − 5/2·y(n−1) + y(n−2) = x(n): impulse response, zero/pole plot, response to 2⁻ⁿu(n): `veduxung` |
 | `DuxungDutanso.m` | script | H(z) = (z + 2)/(z − 0.5): impulse response, zero/pole plot, frequency response: `DuxungDutanso` |
-| `LayMauTH.m` | script | Copy of `LAB3/bai1.m`: `LayMauTH` |
-| `LayMau_XDPhoTS.m` | script | Copy of `LAB3/bai2.m`: `LayMau_XDPhoTS` |
-| `sig_sampling.m` | script | Copy of `LAB3/demo_signal_sampling.m`: `sig_sampling` |
-| `XuLyAmThanh.m` | script | Copy of `LAB3/bai4.m` (uses `lib/audioclip1.wav`): `XuLyAmThanh` |
+| `LayMauTH.m` | script | Copy of `LAB3-signal-sampling/bai1.m`: `LayMauTH` |
+| `LayMau_XDPhoTS.m` | script | Copy of `LAB3-signal-sampling/bai2.m`: `LayMau_XDPhoTS` |
+| `sig_sampling.m` | script | Copy of `LAB3-signal-sampling/demo_signal_sampling.m`: `sig_sampling` |
+| `XuLyAmThanh.m` | script | Copy of `LAB3-signal-sampling/bai4.m` (uses `lib/audioclip1.wav`): `XuLyAmThanh` |
 | `xlat.m` | script | ⚠️ **Unfinished.** Builds a 400/800/2000 Hz tone and a Butterworth filter, but uses undefined variables (`Tone_A`, `noise`, `Tone_A_noise`), so it errors |
 
 ## midterm: midterm exam
