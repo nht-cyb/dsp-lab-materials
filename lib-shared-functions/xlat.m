@@ -8,7 +8,9 @@ th1 = sin(2*pi*f1*t);
 th2 = sin(2*pi*f2*t);
 th3 = sin(2*pi*f3*t);
 
-Signal = th1 + th2 + th3;
+Tone_A = th1 + th2;            % wanted signal: 400 Hz + 800 Hz
+noise = th3;                   % unwanted 2000 Hz tone
+Tone_A_noise = Tone_A + noise; % signal to be filtered
 
 fc = 1800;
 [b, a] = butter(6, fc/(Fs/2));

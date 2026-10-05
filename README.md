@@ -113,9 +113,8 @@ This lab only had a manual, so there is no `LAB4` folder in the repo. Solutions 
 | `tong2sine.slx` | Simulink model | **Sum** of two sines: x1 = 2·sin(0.1πt) + x2 = 0.8·sin(0.05πt) | `open_system('tong2sine')`, then click **Run** |
 | `tich2sine.slx` | Simulink model | **Product** of the same two sines | `open_system('tich2sine')`, then click **Run** |
 | `bai2.slx` | Simulink model | Square wave built from a Fourier series | `open_system('bai2')`, then click **Run** |
-| `bai2.m` | script | Square wave built from the first 7 odd harmonics: Σ 4·sin(2πkt)/(kπ) | `bai2` |
+| `bai2.m` | script | Square wave built from the first 7 odd harmonics: Σ 4·sin(2πkt)/(kπ), over 2 s | `bai2` |
 
-> `bai2.m` uses a time step of 0.1 s, which is too coarse for harmonics up to 13 Hz, so the plot is aliased. For a clean square wave, change the first line to `t = 0:0.001:2;`.
 
 ## LAB6-system-structures: System structure design
 
@@ -172,7 +171,7 @@ addpath('lib-shared-functions')   % run from the repo root
 | `LayMau_XDPhoTS.m` | script | Copy of `LAB3-signal-sampling/bai2.m`: `LayMau_XDPhoTS` |
 | `sig_sampling.m` | script | Copy of `LAB3-signal-sampling/demo_signal_sampling.m`: `sig_sampling` |
 | `XuLyAmThanh.m` | script | Copy of `LAB3-signal-sampling/bai4.m` (uses `lib-shared-functions/audioclip1.wav`): `XuLyAmThanh` |
-| `xlat.m` | script | ⚠️ **Unfinished.** Builds a 400/800/2000 Hz tone and a Butterworth filter, but uses undefined variables (`Tone_A`, `noise`, `Tone_A_noise`), so it errors |
+| `xlat.m` | script | 400 + 800 Hz tone with a 2000 Hz noise tone, low-pass filtered by a 6th-order Butterworth (fc = 1800 Hz); plots all four signals: `xlat` |
 
 ## midterm-exam: midterm exam
 
