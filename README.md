@@ -48,13 +48,12 @@ Files that begin with `function` are **functions**, not scripts. Call them with 
 
 | File | Type | Description | How to run |
 |---|---|---|---|
-| `lab0.m` | script | Exercises on vectors, trig functions, matrix ops, `linspace`, `zeros`, `rand` | `lab0` ⚠️ see note |
+| `lab0.m` | script | Exercises on vectors, trig functions, matrix ops, `linspace`, `zeros`, `rand` | `lab0` |
 | `PBTask3p3_Mark.m` | script | Converts a random mark (1–100) into a grade with `if/elseif` | `PBTask3p3_Mark` |
-| `subplot.m` | script | Defines data for a subplot exercise (no plotting yet) | ⚠️ see note |
+| `subplot_ex.m` | script | Plots x², sin(0.2πx) and eˣ in three stacked subplots | `subplot_ex` |
 | `note.txt` | text | Command Window log from the lab session, for reference only | not runnable |
 
-> ⚠️ **`lab0.m`** stops at line 28, `h = 5*h;`, because `h` is undefined. It should probably be `h = 5*v;`.
-> ⚠️ **`subplot.m`** has the same name as MATLAB's built-in `subplot`. While `LAB0` is the current folder, every call to `subplot(...)` runs this file instead of the built-in. Rename it, for example to `subplot_ex.m`.
+> `subplot_ex.m` was originally named `subplot.m`. It was renamed so it no longer shadows MATLAB's built-in `subplot` function.
 
 ## LAB1: Signals
 
