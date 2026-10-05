@@ -12,7 +12,7 @@ Tone_A = th1 + th2;            % wanted signal: 400 Hz + 800 Hz
 noise = th3;                   % unwanted 2000 Hz tone
 Tone_A_noise = Tone_A + noise; % signal to be filtered
 
-fc = 1800;
+fc = 1200;     % between 800 Hz (keep) and 2000 Hz (remove)
 [b, a] = butter(6, fc/(Fs/2));
 filtered = filter(b, a, Tone_A_noise);
 figure(20020727)

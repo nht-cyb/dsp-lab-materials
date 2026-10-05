@@ -171,7 +171,7 @@ addpath('lib-shared-functions')   % run from the repo root
 | `LayMau_XDPhoTS.m` | script | Copy of `LAB3-signal-sampling/bai2.m`: `LayMau_XDPhoTS` |
 | `sig_sampling.m` | script | Copy of `LAB3-signal-sampling/demo_signal_sampling.m`: `sig_sampling` |
 | `XuLyAmThanh.m` | script | Copy of `LAB3-signal-sampling/bai4.m` (uses `lib-shared-functions/audioclip1.wav`): `XuLyAmThanh` |
-| `xlat.m` | script | 400 + 800 Hz tone with a 2000 Hz noise tone, low-pass filtered by a 6th-order Butterworth (fc = 1800 Hz); plots all four signals: `xlat` |
+| `xlat.m` | script | 400 + 800 Hz tone with a 2000 Hz noise tone, low-pass filtered by a 6th-order Butterworth (fc = 1200 Hz); plots all four signals: `xlat` |
 
 ## midterm-exam: midterm exam
 
