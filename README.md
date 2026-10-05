@@ -37,8 +37,8 @@ Files that begin with `function` are **functions**, not scripts. Call them with 
 | `LAB5-simulink` | Lab 5: Simulink | Building signal models in Simulink, Fourier series |
 | `LAB6-system-structures` | Lab 6: System structure design (*Thiết kế cấu trúc hệ thống*) | Cascade (series) and parallel realizations of H(z) |
 | `LAB8-fir-filter-design` | Lab 7 + 8: Digital filter design: FIR (*Thiết kế bộ lọc số – Bộ lọc FIR*) | Ideal low-pass filter, the windowing method (Hamming) |
-| `lib` | Shared helper functions | Reusable signal generators and solutions collected from the labs |
-| `midterm` | Midterm exam (*Giữa kỳ*) | Function plotting, multi-tone signal, LTI system, moving-average filter |
+| `lib-shared-functions` | Shared helper functions | Reusable signal generators and solutions collected from the labs |
+| `midterm-exam` | Midterm exam (*Giữa kỳ*) | Function plotting, multi-tone signal, LTI system, moving-average filter |
 
 
 ---
@@ -103,7 +103,7 @@ Covers Chapters 2 and 4 of the lab manual.
 
 ## LAB4: Systems
 
-This lab only had a manual, so there is no `LAB4` folder in the repo. Solutions for this chapter (impulse response, zero/pole plot, frequency response) are in `lib/veduxung.m` and `lib/DuxungDutanso.m`.
+This lab only had a manual, so there is no `LAB4` folder in the repo. Solutions for this chapter (impulse response, zero/pole plot, frequency response) are in `lib-shared-functions/veduxung.m` and `lib-shared-functions/DuxungDutanso.m`.
 
 ## LAB5-simulink: Simulink
 
@@ -130,7 +130,7 @@ a = [16 12 2 -4 -1];           % denominator coefficients
 [b0, A, B] = dir2cas(b, a)     % b0 = gain, A = denominator sections, B = numerator sections (one row per section)
 ```
 
-For the **parallel** form, see `lib/CTSS.m`: `[B, A, K] = CTSS(b, a)`.
+For the **parallel** form, see `lib-shared-functions/CTSS.m`: `[B, A, K] = CTSS(b, a)`.
 
 ## LAB8-fir-filter-design: Digital filter design (FIR)
 
@@ -145,12 +145,12 @@ For the **parallel** form, see `lib/CTSS.m`: `[B, A, K] = CTSS(b, a)`.
 
 ---
 
-## lib: shared helper functions
+## lib-shared-functions: shared helper functions
 
-To use these from any folder, add `lib` to the path once per session:
+To use these from any folder, add `lib-shared-functions` to the path once per session:
 
 ```matlab
-addpath('lib')   % run from the repo root
+addpath('lib-shared-functions')   % run from the repo root
 ```
 
 | File | Type | Description / usage |
@@ -171,21 +171,21 @@ addpath('lib')   % run from the repo root
 | `LayMauTH.m` | script | Copy of `LAB3-signal-sampling/bai1.m`: `LayMauTH` |
 | `LayMau_XDPhoTS.m` | script | Copy of `LAB3-signal-sampling/bai2.m`: `LayMau_XDPhoTS` |
 | `sig_sampling.m` | script | Copy of `LAB3-signal-sampling/demo_signal_sampling.m`: `sig_sampling` |
-| `XuLyAmThanh.m` | script | Copy of `LAB3-signal-sampling/bai4.m` (uses `lib/audioclip1.wav`): `XuLyAmThanh` |
+| `XuLyAmThanh.m` | script | Copy of `LAB3-signal-sampling/bai4.m` (uses `lib-shared-functions/audioclip1.wav`): `XuLyAmThanh` |
 | `xlat.m` | script | ⚠️ **Unfinished.** Builds a 400/800/2000 Hz tone and a Butterworth filter, but uses undefined variables (`Tone_A`, `noise`, `Tone_A_noise`), so it errors |
 
-## midterm: midterm exam
+## midterm-exam: midterm exam
 
-Exam paper: `GK.docx`; submitted answers: `GK_NguyenHuyenTrang_20020727.docx`. Run the scripts from inside `midterm/`. Everything this folder needs is in the folder itself:
+Exam paper: `GK.docx`; submitted answers: `GK_NguyenHuyenTrang_20020727.docx`. Run the scripts from inside `midterm-exam/`. Everything this folder needs is in the folder itself:
 
 ```matlab
-cd midterm
+cd midterm-exam
 bai2
 ```
 
 | File | Type | Description | How to run |
 |---|---|---|---|
-| `bai1func.m` | function | f(x) = 3.2x⁴ − 6x² − 5x | `bai1func(-5)` (plot it with `lib/bai1.m`) |
+| `bai1func.m` | function | f(x) = 3.2x⁴ − 6x² − 5x | `bai1func(-5)` (plot it with `lib-shared-functions/bai1.m`) |
 | `bai2.m` | script | 3-second signal: 300 Hz → 300+400 Hz → 300+400+500 Hz | `bai2` |
 | `bai3.m` | script | y(n) − 5/2·y(n−1) + y(n−2) = x(n): analytic impulse response h(n) = (4/3)·2ⁿ − (1/3)·(1/2)ⁿ vs. `impz`, zero/pole plot, response to 2⁻ⁿu(n) | `bai3` |
 | `step.m` | function | Unit step: `[x, n] = step(n1, n2, n0)` | used by `bai3.m` |
@@ -193,4 +193,4 @@ bai2
 | `bai4.m` | script | Noisy cosine smoothed with width 5 and 20 | `bai4` |
 | `test.m` | script | Noisy sine smoothed with width 5 | `test` |
 
-> `midterm/step.m` shadows the Control System Toolbox `step` function while `midterm/` is the current folder.
+> `midterm-exam/step.m` shadows the Control System Toolbox `step` function while `midterm-exam/` is the current folder.
